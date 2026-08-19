@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amity & Kin — Celebrating The Magic of True Friendship</title>
+  <meta name="description" content="Discover why friendship is life's greatest gift. Test your bond with our interactive Friendship Calculator, explore curated moments, and send virtual cards to your best friends.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Background Ambient Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Header Navigation -->
+  <header class="header-nav" id="mainHeader">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+        <span class="logo-text">Amity<span class="highlight">&</span>Kin</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero" class="nav-item active"><i class="fa-solid fa-calculator"></i> Calculator</a>
+        <a href="#pillars" class="nav-item"><i class="fa-solid fa-shield-halved"></i> Why It Matters</a>
+        <a href="#gallery" class="nav-item"><i class="fa-solid fa-camera-retro"></i> Moments</a>
+        <a href="#wisdom" class="nav-item"><i class="fa-solid fa-quote-left"></i> Wisdom</a>
+        <a href="#card-studio" class="nav-item"><i class="fa-solid fa-gift"></i> Card Studio</a>
+        <a href="#guide" class="nav-item"><i class="fa-solid fa-compass"></i> Friendship Guide</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#calculator-card" class="btn btn-primary-sm pulse-btn">
+          <i class="fa-solid fa-sparkles"></i> Test Bond
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION WITH FRIENDSHIP CALCULATOR -->
+    <section class="hero-section" id="hero">
+      <div class="hero-particles" id="heroParticles"></div>
+      
+      <div class="container hero-grid">
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <div class="badge-tag">
+            <span class="badge-dot"></span>
+            <i class="fa-solid fa-seedling"></i> Nurturing Lifelong Connections
+          </div>
+
+          <h1 class="hero-title">
+            Friendship is the <span class="gradient-text">Golden Thread</span> that ties all hearts together.
+          </h1>
+
+          <p class="hero-description">
+            A true friend doubles your joy, divides your grief, and turns ordinary moments into unforgettable memories. Discover the science, beauty, and strength of the bonds that make life worthwhile.
+          </p>
+
+          <!-- Quick Stats Highlights -->
+          <div class="hero-stats-row">
+            <div class="stat-pill">
+              <div class="stat-icon-wrapper"><i class="fa-solid fa-heart-pulse"></i></div>
+              <div>
+                <strong class="stat-number">+50%</strong>
+                <span class="stat-label">Longevity Boost</span>
+              </div>
+            </div>
+            <div class="stat-pill">
+              <div class="stat-icon-wrapper"><i class="fa-solid fa-face-laugh-beam"></i></div>
+              <div>
+                <strong class="stat-number">2x</strong>
+                <span class="stat-label">Daily Smiles</span>
+              </div>
+            </div>
+            <div class="stat-pill">
+              <div class="stat-icon-wrapper"><i class="fa-solid fa-shield-heart"></i></div>
+              <div>
+                <strong class="stat-number">70%</strong>
+                <span class="stat-label">Stress Buffer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#calculator-card" class="btn btn-primary btn-glow">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Try Friendship Calculator
+            </a>
+            <a href="#gallery" class="btn btn-secondary">
+              <i class="fa-solid fa-images"></i> Explore Memories
+            </a>
+          </div>
+        </div>
+
+        <!-- HERO INTERACTIVE FRIENDSHIP CALCULATOR CARD -->
+        <div class="hero-calculator-wrap" id="calculator-card">
+          <div class="calculator-card glass-card">
+            <div class="calc-header">
+              <div class="calc-badge"><i class="fa-solid fa-bolt"></i> Cosmic Synergy Engine</div>
+              <h2 class="calc-title">Friendship Calculator</h2>
+              <p class="calc-subtitle">Enter your names to decode your unique bond chemistry!</p>
+            </div>
+
+            <form id="friendshipForm" class="calc-form" onsubmit="return false;">
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="nameOne"><i class="fa-solid fa-user"></i> Your Name</label>
+                  <div class="input-wrapper">
+                    <input type="text" id="nameOne" placeholder="e.g. Alex" required autocomplete="off" maxlength="24">
+                  </div>
+                </div>
+
+                <div class="input-divider">
+                  <span class="heart-pulse-icon"><i class="fa-solid fa-infinity"></i></span>
+                </div>
+
+                <div class="input-group">
+                  <label for="nameTwo"><i class="fa-solid fa-user-group"></i> Bestie's Name</label>
+                  <div class="input-wrapper">
+                    <input type="text" id="nameTwo" placeholder="e.g. Jordan" required autocomplete="off" maxlength="24">
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group full-width">
+                <label for="bondStyle"><i class="fa-solid fa-masks-theater"></i> Friendship Vibe</label>
+                <div class="select-wrapper">
+                  <select id="bondStyle">
+                    <option value="crime">Partners in Crime (Late Night Chaos & Laughter)</option>
+                    <option value="soul">Soul Siblings (Deep Talks & Unconditional Trust)</option>
+                    <option value="childhood">Day-One Besties (Shared Childhood Memories)</option>
+                    <option value="adventure">Wanderlust Duo (Travel, Roadtrips & Spontaneous Plans)</option>
+                    <option value="workplace">Workplace Survival Squad (Coffee & Shared Rants)</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" id="calculateBtn" class="btn btn-calculate">
+                <span class="btn-text"><i class="fa-solid fa-heart-circle-bolt"></i> Calculate Friendship Synergy</span>
+                <span class="btn-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i></span>
+              </button>
+            </form>
+
+            <!-- Results View (Hidden by default, reveals on submit) -->
+            <div id="calcResult" class="calc-result hidden">
+              <div class="result-top">
+                <div class="score-circle-wrapper">
+                  <svg class="score-svg" viewBox="0 0 120 120">
+                    <circle class="score-bg-ring" cx="60" cy="60" r="50"></circle>
+                    <circle id="scoreProgressRing" class="score-fg-ring" cx="60" cy="60" r="50"></circle>
+                  </svg>
+                  <div class="score-text-inside">
+                    <span id="scoreNumber" class="score-num">0%</span>
+                    <span class="score-sub">Compatibility</span>
+                  </div>
+                </div>
+
+                <div class="result-summary">
+                  <h3 id="resultTitle" class="result-vibe-title">Soul Bond Activated! ✨</h3>
+                  <p id="resultDesc" class="result-vibe-text">You two share an unbreakable frequency.</p>
+                  <span id="resultBadge" class="result-tier-badge">✨ Legendary Duo</span>
+                </div>
+              </div>
+
+              <!-- Personality Trait Breakdown Bars -->
+              <div class="trait-bars">
+                <div class="trait-item">
+                  <div class="trait-labels">
+                    <span><i class="fa-solid fa-handshake-angle"></i> Loyalty & Trust</span>
+                    <span id="traitLoyalty" class="trait-val">98%</span>
+                  </div>
+                  <div class="trait-track">
+                    <div id="barLoyalty" class="trait-fill" style="width: 0%;"></div>
+                  </div>
+                </div>
+
+                <div class="trait-item">
+                  <div class="trait-labels">
+                    <span><i class="fa-solid fa-masks-theater"></i> Chaos & Laughter</span>
+                    <span id="traitChaos" class="trait-val">96%</span>
+                  </div>
+                  <div class="trait-track">
+                    <div id="barChaos" class="trait-fill fill-amber" style="width: 0%;"></div>
+                  </div>
+                </div>
+
+                <div class="trait-item">
+                  <div class="trait-labels">
+                    <span><i class="fa-solid fa-comments"></i> 2 AM Telepathy</span>
+                    <span id="traitTalks" class="trait-val">94%</span>
+                  </div>
+                  <div class="trait-track">
+                    <div id="barTalks" class="trait-fill fill-purple" style="width: 0%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action buttons for result -->
+              <div class="result-actions">
+                <button id="confettiPopBtn" class="btn btn-sm btn-outline">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Celebrate (Confetti)
+                </button>
+                <button id="transferToCardBtn" class="btn btn-sm btn-accent">
+                  <i class="fa-solid fa-gift"></i> Create Friendship Card
+                </button>
+                <button id="recalcBtn" class="btn btn-sm btn-ghost">
+                  <i class="fa-solid fa-rotate-left"></i> Recalculate
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: THE PILLARS OF TRUE FRIENDSHIP (WHY IT MATTERS) -->
+    <section class="section-padding pillars-section" id="pillars">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-tag mx-auto">
+            <i class="fa-solid fa-heart"></i> The Core Foundations
+          </div>
+          <h2 class="section-title">Why Friendship Shapes Who We Are</h2>
+          <p class="section-subtitle">
+            Friendship isn’t just about having someone to hang out with; it's a lifeline for emotional strength, personal evolution, and lifelong mental health.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Pillar Card 1 -->
+          <div class="pillar-card glass-card">
+            <div class="pillar-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Group of friends hugging warmly at golden hour" loading="lazy" class="pillar-img">
+              <span class="pillar-category-tag"><i class="fa-solid fa-shield-heart"></i> Safe Haven</span>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-heading">Unconditional Acceptance & Safe Space</h3>
+              <p class="pillar-text">
+                With a genuine friend, you never have to wear a mask. You can confess your biggest fears, celebrate your strangest quirks, and be loved exactly as you are without judgment.
+              </p>
+              <ul class="pillar-points">
+                <li><i class="fa-solid fa-circle-check"></i> Safe harbor during emotional storms</li>
+                <li><i class="fa-solid fa-circle-check"></i> Vulnerability turns into mutual strength</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pillar Card 2 -->
+          <div class="pillar-card glass-card">
+            <div class="pillar-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Friends laughing uncontrollably around a café table" loading="lazy" class="pillar-img">
+              <span class="pillar-category-tag tag-amber"><i class="fa-solid fa-face-laugh-beam"></i> Joy Multiplier</span>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-heading">Shared Joy & Spontaneous Laughter</h3>
+              <p class="pillar-text">
+                Psychological studies show that laughter shared with close companions releases high doses of endorphins, cuts cortisol levels, and permanently cements memories of bliss.
+              </p>
+              <ul class="pillar-points">
+                <li><i class="fa-solid fa-circle-check"></i> Inside jokes that last for decades</li>
+                <li><i class="fa-solid fa-circle-check"></i> Turning ordinary moments into epic tales</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pillar Card 3 -->
+          <div class="pillar-card glass-card">
+            <div class="pillar-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?auto=format&fit=crop&w=800&q=80" alt="Friends traveling on a scenic mountain hike together" loading="lazy" class="pillar-img">
+              <span class="pillar-category-tag tag-violet"><i class="fa-solid fa-chart-line-up"></i> Growth Mirror</span>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-heading">Mutual Growth & Loving Honesty</h3>
+              <p class="pillar-text">
+                True friends don't just tell you what you want to hear; they hold up a mirror with love, encourage your wildest dreams, and keep you grounded when you achieve success.
+              </p>
+              <ul class="pillar-points">
+                <li><i class="fa-solid fa-circle-check"></i> Gentle accountability and encouragement</li>
+                <li><i class="fa-solid fa-circle-check"></i> Celebrating each other's triumphs without envy</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pillar Card 4 -->
+          <div class="pillar-card glass-card">
+            <div class="pillar-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Group of diverse friends celebrating together" loading="lazy" class="pillar-img">
+              <span class="pillar-category-tag tag-cyan"><i class="fa-solid fa-spa"></i> Health & Longevity</span>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-heading">Longevity & Scientific Well-being</h3>
+              <p class="pillar-text">
+                Harvard's 85-year Study of Adult Development proved that meaningful friendships are the single greatest predictor of human longevity, happiness, and cognitive vitality in old age.
+              </p>
+              <ul class="pillar-points">
+                <li><i class="fa-solid fa-circle-check"></i> Lower risk of depression and anxiety</li>
+                <li><i class="fa-solid fa-circle-check"></i> Strengthened cardiovascular resilience</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: VISUAL GALLERY OF FRIENDSHIP MOMENTS (UNSPLASH) -->
+    <section class="section-padding gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-tag mx-auto">
+            <i class="fa-solid fa-camera"></i> Curated Unsplash Photography
+          </div>
+          <h2 class="section-title">Moments That Become Lifelong Stories</h2>
+          <p class="section-subtitle">
+            From sunrise hikes to late-night diner chats, explore the visual chapters that define our closest relationships.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all">All Moments</button>
+          <button class="filter-btn" data-filter="adventure">Adventures & Roadtrips</button>
+          <button class="filter-btn" data-filter="coffee">Cozy Chats & Cafés</button>
+          <button class="filter-btn" data-filter="sunset">Golden Hour & Sunsets</button>
+          <button class="filter-btn" data-filter="celebration">Festivals & Celebrations</button>
+        </div>
+
+        <!-- Dynamic Photo Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+          
+          <!-- Item 1 -->
+          <div class="gallery-item" data-category="adventure" data-title="Sunlit Mountain Roadtrip" data-author="Unsplash / Felix Rostig" data-quote="Life was meant for good friends and great adventures.">
+            <div class="gallery-img-container">
+              <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80" alt="Friends traveling in a vintage car on open road" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-category"><i class="fa-solid fa-car-side"></i> Adventure</span>
+                <h4 class="gallery-item-title">Roadtrips & Open Horizons</h4>
+                <p class="gallery-item-sub">Singing loudly to off-key songs with the windows down.</p>
+                <button class="view-lightbox-btn" aria-label="View larger image"><i class="fa-solid fa-expand"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="gallery-item" data-category="coffee" data-title="Warm Afternoon Coffee & Heartfelt Talks" data-author="Unsplash / Priscilla Du Preez" data-quote="A cup of coffee shared with a friend is happiness tasted and time well spent.">
+            <div class="gallery-img-container">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Friends smiling and chatting over coffee" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-category"><i class="fa-solid fa-mug-hot"></i> Cozy Chats</span>
+                <h4 class="gallery-item-title">The Coffee Sanctuary</h4>
+                <p class="gallery-item-sub">Hours melting away over warm mugs and quiet secrets.</p>
+                <button class="view-lightbox-btn" aria-label="View larger image"><i class="fa-solid fa-expand"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="gallery-item" data-category="sunset" data-title="Golden Hour Silhouette & Shared Silence" data-author="Unsplash / Chang Duong" data-quote="True friends are never apart, maybe in distance but never in heart.">
+            <div class="gallery-img-container">
+              <img src="https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?auto=format&fit=crop&w=800&q=80" alt="Friends standing together watching a vibrant sunset" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-category"><i class="fa-solid fa-sun"></i> Golden Hour</span>
+                <h4 class="gallery-item-title">Chasing Golden Sunsets</h4>
+                <p class="gallery-item-sub">When words are unnecessary and the view speaks for you.</p>
+                <button class="view-lightbox-btn" aria-label="View larger image"><i class="fa-solid fa-expand"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="gallery-item" data-category="celebration" data-title="Campfire Sparks & Midnight Laughter" data-author="Unsplash / Kimson Doan" data-quote="Friendship is born at that moment when one person says to another: 'What! You too?'">
+            <div class="gallery-img-container">
+              <img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=800&q=80" alt="Friends around campfire enjoying night stars" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-category"><i class="fa-solid fa-fire"></i> Celebration</span>
+                <h4 class="gallery-item-title">Campfire Under Starlight</h4>
+                <p class="gallery-item-sub">Roasting marshmallows and sharing childhood dreams.</p>
+                <button class="view-lightbox-btn" aria-label="View larger image"><i class="fa-solid fa-expand"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="gallery-item" data-category="adventure" data-title="Mountain Summit High Fives" data-author="Unsplash / Toa Heftiba" data-quote="With the right people, every uphill climb feels like a victory lap.">
+            <div class="gallery-img-container">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team of best friends collaborating and smiling in office studio" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-category"><i class="fa-solid fa-mountain"></i> Team Spirit</span>
+                <h4 class="gallery-item-title">Building Dreams Together</h4>
+                <p class="gallery-item-sub">Turning creative synergy into unforgettable achievements.</p>
+                <button class="view-lightbox-btn" aria-label="View larger image"><i class="fa-solid fa-expand"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="gallery-item" data-category="sunset" data-title="Seaside Laughs & Beach Memories" data-author="Unsplash / Radu Florin" data-quote="Good times and crazy friends make the best memories.">
+            <div class="gallery-img-container">
+              <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80" alt="Friends playing with balloons in the sea at dusk" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-category"><i class="fa-solid fa-water"></i> Coastal Vibes</span>
+                <h4 class="gallery-item-title">Ocean Waves & Carefree Spirits</h4>
+                <p class="gallery-item-sub">Running along the shore with sea spray and timeless laughs.</p>
+                <button class="view-lightbox-btn" aria-label="View larger image"><i class="fa-solid fa-expand"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox-modal" id="lightboxModal">
+      <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close image preview">&times;</button>
+        <div class="lightbox-img-wrap">
+          <img src="" alt="" id="lightboxImg">
+        </div>
+        <div class="lightbox-details">
+          <h3 id="lightboxTitle">Moments</h3>
+          <p id="lightboxQuote" class="lightbox-quote">"Quote"</p>
+          <span id="lightboxAuthor" class="lightbox-author">Photo via Unsplash</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: FRIENDSHIP WISDOM & INTERACTIVE QUOTE ENGINE -->
+    <section class="section-padding wisdom-section" id="wisdom">
+      <div class="container">
+        <div class="wisdom-wrapper glass-card">
+          <div class="wisdom-header text-center">
+            <div class="badge-tag mx-auto">
+              <i class="fa-solid fa-book-open"></i> Timeless Insights
+            </div>
+            <h2 class="section-title">Words of Friendship Through the Ages</h2>
+            <p class="section-subtitle">Wisdom from great thinkers, philosophers, and storytellers on the profound grace of true companions.</p>
+          </div>
+
+          <div class="quote-display-box" id="quoteBox">
+            <div class="quote-icon-large"><i class="fa-solid fa-quote-left"></i></div>
+            <blockquote id="quoteText" class="active-quote">
+              "A real friend is one who walks in when the rest of the world walks out."
+            </blockquote>
+            <cite id="quoteAuthor" class="active-author">— Walter Winchell</cite>
+          </div>
+
+          <div class="wisdom-controls">
+            <button id="prevQuoteBtn" class="btn-icon" aria-label="Previous quote"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="randomQuoteBtn" class="btn btn-primary">
+              <i class="fa-solid fa-shuffle"></i> Inspire Me with Another Quote
+            </button>
+            <button id="copyQuoteBtn" class="btn btn-secondary">
+              <i class="fa-solid fa-copy"></i> <span id="copyQuoteText">Copy Quote</span>
+            </button>
+            <button id="nextQuoteBtn" class="btn-icon" aria-label="Next quote"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: VIRTUAL FRIENDSHIP CARD & BRACELET STUDIO -->
+    <section class="section-padding card-studio-section" id="card-studio">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-tag mx-auto">
+            <i class="fa-solid fa-wand-magic"></i> Interactive Workshop
+          </div>
+          <h2 class="section-title">Design a Digital Friendship Card & Certificate</h2>
+          <p class="section-subtitle">
+            Personalize a heartfelt digital card or honorary certificate for your bestie and export it instantly.
+          </p>
+        </div>
+
+        <div class="studio-grid">
+          <!-- Card Customizer Form -->
+          <div class="studio-controls-card glass-card">
+            <h3 class="studio-subhead"><i class="fa-solid fa-sliders"></i> Customize Your Card</h3>
+            
+            <div class="form-group">
+              <label for="cardSender">From (Your Name):</label>
+              <input type="text" id="cardSender" value="Alex" maxlength="24" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label for="cardRecipient">To (Bestie's Name):</label>
+              <input type="text" id="cardRecipient" value="Jordan" maxlength="24" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label>Card Style / Palette:</label>
+              <div class="theme-picker-row">
+                <button class="theme-pill-btn active" data-palette="sunset" title="Sunset Radiance">🌅 Sunset</button>
+                <button class="theme-pill-btn" data-palette="ocean" title="Deep Ocean Harmony">🌊 Ocean</button>
+                <button class="theme-pill-btn" data-palette="aurora" title="Cosmic Aurora">✨ Aurora</button>
+                <button class="theme-pill-btn" data-palette="rose" title="Rose Gold Bloom">🌸 Rose Gold</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cardMessage">Heartfelt Message / Inside Joke:</label>
+              <textarea id="cardMessage" rows="3" class="form-input" maxlength="160">Thank you for being my constant rock, my partner in crime, and the only person who gets my weird sense of humor. You are family!</textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Friendship Title Badge:</label>
+              <div class="badge-select-row">
+                <button class="badge-opt-btn active" data-badge="⭐ Best Friend For Life">⭐ Bestie for Life</button>
+                <button class="badge-opt-btn" data-badge="🏆 Certified Ride or Die">🏆 Ride or Die</button>
+                <button class="badge-opt-btn" data-badge="💖 Soul Sibling">💖 Soul Sibling</button>
+                <button class="badge-opt-btn" data-badge="🍕 Partner in Chaos">🍕 Partner in Chaos</button>
+              </div>
+            </div>
+
+            <div class="studio-export-row">
+              <button id="downloadCardBtn" class="btn btn-primary full-width">
+                <i class="fa-solid fa-download"></i> Download High-Res Card Image (.png)
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Card Preview -->
+          <div class="studio-preview-wrap">
+            <div class="preview-label-bar">
+              <span><i class="fa-solid fa-eye"></i> Live Interactive Preview</span>
+              <span class="badge-status">HD Ready</span>
+            </div>
+
+            <div class="friendship-card-canvas-preview theme-sunset" id="cardPreviewContainer">
+              <div class="card-bg-pattern"></div>
+              
+              <div class="card-inner-content">
+                <div class="card-top-badge" id="previewBadge">⭐ Best Friend For Life</div>
+
+                <div class="card-salutation">
+                  <span>Dearest</span>
+                  <h3 class="preview-recipient-name" id="previewRecipient">Jordan</h3>
+                </div>
+
+                <div class="card-message-body">
+                  <p id="previewMessage">
+                    "Thank you for being my constant rock, my partner in crime, and the only person who gets my weird sense of humor. You are family!"
+                  </p>
+                </div>
+
+                <div class="card-footer-signoff">
+                  <div class="card-friendship-seal">
+                    <i class="fa-solid fa-heart"></i>
+                  </div>
+                  <div class="card-signoff-text">
+                    <span class="signoff-sub">Forever with love,</span>
+                    <strong class="preview-sender-name" id="previewSender">Alex</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: THE ART OF LIFELONG FRIENDSHIP (TIPS & ACCORDION) -->
+    <section class="section-padding guide-section" id="guide">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-tag mx-auto">
+            <i class="fa-solid fa-compass"></i> Friendship Masterclass
+          </div>
+          <h2 class="section-title">How to Nurture & Protect Lifelong Bonds</h2>
+          <p class="section-subtitle">
+            Long-lasting friendships don't just happen by accident. They are cultivated through small acts of daily care, honest communication, and unwavering loyalty.
+          </p>
+        </div>
+
+        <div class="guide-grid">
+          <!-- Guide Step 1 -->
+          <div class="guide-card glass-card">
+            <div class="guide-number">01</div>
+            <div class="guide-icon"><i class="fa-solid fa-ear-listen"></i></div>
+            <h3 class="guide-title">Active & Empathetic Listening</h3>
+            <p class="guide-desc">
+              Listen to understand, not just to reply. When your friend is sharing a struggle, ask: <em>"Do you want me to listen, give advice, or help distract you?"</em>
+            </p>
+          </div>
+
+          <!-- Guide Step 2 -->
+          <div class="guide-card glass-card">
+            <div class="guide-number">02</div>
+            <div class="guide-icon"><i class="fa-solid fa-bell-slash"></i></div>
+            <h3 class="guide-title">Low-Pressure Consistency</h3>
+            <p class="guide-desc">
+              Great friendships survive weeks of silence without resentment. Send a quick meme, voice note, or "Thinking of you!" text without expecting an immediate response.
+            </p>
+          </div>
+
+          <!-- Guide Step 3 -->
+          <div class="guide-card glass-card">
+            <div class="guide-number">03</div>
+            <div class="guide-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <h3 class="guide-title">Celebrate Unreservedly</h3>
+            <p class="guide-desc">
+              Be their biggest cheerleader. When they land a job, fall in love, or conquer a personal goal, celebrate their win as if it were your own.
+            </p>
+          </div>
+
+          <!-- Guide Step 4 -->
+          <div class="guide-card glass-card">
+            <div class="guide-number">04</div>
+            <div class="guide-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <h3 class="guide-title">Repair Fractures Swiftly</h3>
+            <p class="guide-desc">
+              Misunderstandings are inevitable. Prioritize the bond over your ego. Apologize honestly when you're wrong and forgive generously when they stumble.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Friendship Pledge Box -->
+        <div class="friendship-pledge-card glass-card text-center">
+          <div class="pledge-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+          <h3 class="pledge-title">The Daily Friendship Pledge</h3>
+          <p class="pledge-body">
+            <em>"I promise to show up in the storms, celebrate in the sunshine, respect your growth, and never let busy schedules erase the sacred connection we share."</em>
+          </p>
+          <div class="pledge-action">
+            <button id="sendPledgeBtn" class="btn btn-primary">
+              <i class="fa-solid fa-share-nodes"></i> Share This Pledge With a Friend
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-banner-inner glass-card">
+          <div class="cta-banner-content">
+            <h2 class="cta-heading">Reach Out to a Friend Right Now.</h2>
+            <p class="cta-sub">
+              It takes only 10 seconds to send a text that brightens someone's entire week. Don't wait for a special occasion to say, <em>"I'm grateful you exist."</em>
+            </p>
+          </div>
+          <div class="cta-banner-btn-wrap">
+            <a href="#calculator-card" class="btn btn-primary btn-glow">
+              <i class="fa-solid fa-sparkles"></i> Calculate Bond Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="brand-logo">
+          <span class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+          <span class="logo-text">Amity<span class="highlight">&</span>Kin</span>
+        </a>
+        <p class="footer-tagline">
+          Dedicated to celebrating the unbreakable bonds, laughter, and support that make humanity beautiful.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Quick Navigation</h4>
+        <ul>
+          <li><a href="#hero"><i class="fa-solid fa-chevron-right"></i> Friendship Calculator</a></li>
+          <li><a href="#pillars"><i class="fa-solid fa-chevron-right"></i> Why Friendship Matters</a></li>
+          <li><a href="#gallery"><i class="fa-solid fa-chevron-right"></i> Curated Moments</a></li>
+          <li><a href="#wisdom"><i class="fa-solid fa-chevron-right"></i> Quotes & Wisdom</a></li>
+          <li><a href="#card-studio"><i class="fa-solid fa-chevron-right"></i> Friendship Card Maker</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-share-group">
+        <h4 class="footer-heading">Spread the Love</h4>
+        <p class="footer-subtext">Share this website with your closest companions today.</p>
+        <div class="social-share-btns">
+          <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20awesome%20Friendship%20Calculator%20and%20tribute%20to%20our%20bond!" target="_blank" class="share-btn whatsapp" title="Share on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://twitter.com/intent/tweet?text=Celebrating%20true%20friendship%20and%20testing%20our%20bond!" target="_blank" class="share-btn twitter" title="Share on X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.facebook.com/sharer/sharer.php" target="_blank" class="share-btn facebook" title="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <button id="copySiteLinkBtn" class="share-btn copy-link" title="Copy Website Link"><i class="fa-solid fa-link"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Amity & Kin. Handcrafted with warmth & care. Real photography curated via Unsplash.</p>
+        <a href="#hero" class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Hidden canvas for rendering exported card images -->
+  <canvas id="exportCanvas" style="display: none;"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
